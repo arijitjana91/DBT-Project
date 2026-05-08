@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: customers #  Must match the filename of a model -- including case sensitivity.
+    config:
+      materialized: table
+  - name: date
+    config:
+      materialized: view
+  - name: product
+    config:
+      materialized: table
