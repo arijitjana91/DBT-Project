@@ -14,4 +14,3 @@ wheels/
 
 # dbt artifacts
 dbt_project/profiles.yml
-dbt_project/target/
