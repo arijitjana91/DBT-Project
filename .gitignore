@@ -13,5 +13,5 @@ wheels/
 .vscode/
 
 # dbt artifacts
-profiles.yml
-target/
+dbt_project/profiles.yml
+dbt_project/target/
