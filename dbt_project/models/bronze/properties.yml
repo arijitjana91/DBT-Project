@@ -1,12 +1,33 @@
 version: 2
 
 models:
-  - name: customers #  Must match the filename of a model -- including case sensitivity.
+  - name: bronze_customers #  Must match the filename of a model -- including case sensitivity.
     config:
       materialized: table
-  - name: date
+  - name: bronze_date
     config:
       materialized: view
-  - name: product
+  - name: bronze_product
     config:
       materialized: table
+  - name: bronze_sales
+    columns:
+      - name: sales_id
+        data_tests:
+          - not_null
+          - unique
+      - name: gross_amount
+        data_tests:
+          - generic_non_negative
+  - name: bronze_store
+    columns:
+      - name: store_sk
+        data_tests:
+          - not_null
+          - unique
+      - name: store_name
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['MegaMart Manhattan', 'MegaMart Brooklyn', 'MegaMart San Jose', 'MegaMart Austin', 'MegaMart Toronto']

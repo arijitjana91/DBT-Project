@@ -43,3 +43,11 @@ models:
     gold:
       +materialized: view
       +schema: gold
+
+seeds:
+  dbt_project:
+    # Config indicated by + and applies to all files under seeds/
+    # example:
+    #  +file_header: true
+    #  +delimiter: "|"
+    +schema: bronze
