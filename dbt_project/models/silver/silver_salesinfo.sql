@@ -28,8 +28,9 @@ bronze_customers_cte AS(
         email
     FROM
         {{ ref('bronze_customers') }}
-)
+),
 
+joined_query_cte AS(
 SELECT
     bsc.sales_id,
     bsc.gross_amount,
@@ -49,3 +50,17 @@ JOIN
     bronze_customers_cte bcc
 ON
     bsc.customer_sk = bcc.customer_sk
+)
+
+SELECT
+    category,
+    gender,
+    sum(gross_amount) AS total_gross_amount
+FROM
+    joined_query_cte
+GROUP BY
+    category,
+    gender
+ORDER BY
+    total_gross_amount DESC
+    

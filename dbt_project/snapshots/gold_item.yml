@@ -1,0 +1,16 @@
+snapshots:
+  - name: gold_item
+    relation: ref('source_gold_item') # source('my_source', 'my_table') or ref('my_model')
+    description:  "Gold SCD Type 2 snapshot of the item table"
+    config:
+      # database: dbt_project  
+      database: '{{ target.catalog }}'
+      schema: gold
+      # alias: string
+      strategy: timestamp # timestamp | check
+      unique_key: item_id # column_name_or_expression
+      # check_cols: [column_name] | all
+      updated_at: update_date
+      # snapshot_meta_column_names: dictionary
+      dbt_valid_to_current: Null # Timestamp or Null
+      # hard_deletes: ignore | invalidate | new_record
