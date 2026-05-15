@@ -3,8 +3,8 @@ snapshots:
     relation: ref('source_gold_item') # source('my_source', 'my_table') or ref('my_model')
     description:  "Gold SCD Type 2 snapshot of the item table"
     config:
-      # database: dbt_project  
-      database: '{{ target.catalog }}'
+      database: DBT_PROJECT
+      # database: '{{ target.catalog }}'
       schema: gold
       # alias: string
       strategy: timestamp # timestamp | check
