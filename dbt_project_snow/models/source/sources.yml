@@ -1,7 +1,7 @@
 sources:
   - name: source
-    database: DBT_PROJECT
-    # database: '{{ target.catalog }}'
+    # database: dbt_project  
+    database: '{{ target.database }}'
     schema: source  
     tables:
       - name: fact_sales
