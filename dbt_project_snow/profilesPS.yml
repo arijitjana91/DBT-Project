@@ -1,0 +1,13 @@
+dbt_project_snow:
+  outputs:
+    dev:
+      account: IEYKNZX-OO08997
+      database: DBT_PROJECT
+      password: 
+      role: ACCOUNTADMIN
+      schema: SOURCE
+      threads: 3
+      type: snowflake
+      user: arijitjana91
+      warehouse: COMPUTE_WH
+  target: dev
